@@ -1,0 +1,10 @@
+.footer{
+    background-color: #1976d2;
+    color: #fff;
+    width: 100%;
+    /*Минус Высота футера*/
+    min-height: 100px;
+    /*Высота футера*/
+    bottom:0;   
+    margin-top:100px;
+}

@@ -1,0 +1,26 @@
+.main{
+    margin-top:100px;
+    display: flex;
+    flex: 1 1 auto;
+}
+.content{
+    display: flex;
+    align-items: start;
+    gap:25px;
+}
+.image{
+    width: 500px;
+    height: 400px;
+}
+.info{
+    width: 400px;
+}
+.title{
+    font-size: 32px;
+    list-style: 44px;
+    margin-bottom: 16px;
+}
+.text{
+    font-size: 16px;
+    list-style: 22px;
+}

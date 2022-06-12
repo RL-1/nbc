@@ -1,0 +1,26 @@
+.info{
+    display: flex;
+    align-items:center;
+    gap:25px;
+}
+.main{
+    margin-top:100px;
+}
+.data{
+    width: 100%;
+}
+
+.avatar__icon{
+    width: 160px;
+    height: 160px;
+}
+.goods{
+    margin-top:60px;
+}
+.goods__title{
+    margin-bottom: 30px;
+}
+.button{
+    width: 20%;
+    margin:10px 40%;
+}
