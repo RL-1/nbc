@@ -7,6 +7,7 @@
     display: flex;
     align-items: start;
     gap:25px;
+    position:relative;
 }
 .image{
     width: 500px;
@@ -23,4 +24,16 @@
 .text{
     font-size: 16px;
     list-style: 22px;
+}
+.buttons{
+    position: absolute;
+    bottom: 0;
+}
+.button{
+    width: 200px;
+}
+.modal__link{
+    color:black;
+    font-weight: bold;
+    font-size: 18px;
 }

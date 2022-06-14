@@ -5,6 +5,7 @@
     /*Минус Высота футера*/
     min-height: 100px;
     /*Высота футера*/
+    position:fixed;
     bottom:0;   
     margin-top:100px;
 }

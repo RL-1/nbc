@@ -63,9 +63,12 @@ export const Header: React.FC = () => {
             </NavLink>
           ) : 
             (
-                <Typography variant="h6" component="div">
+                <Typography variant="h6" component="div" className={styles.nav__login}>
                     <NavLink to = '/login' className={styles.login}>
                       Login
+                    </NavLink>
+                    <NavLink to = '/register' className={styles.login}>
+                      Register
                     </NavLink>
                 </Typography> 
             )

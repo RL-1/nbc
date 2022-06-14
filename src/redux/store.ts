@@ -2,11 +2,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import { useDispatch,TypedUseSelectorHook, useSelector } from 'react-redux'
 import homeSlice from '../pages/Home/redux/HomeSlice'
 import loginSlice from '../pages/isAuth/redux/loginSlice'
+import lkSlice from '../pages/Lk/redux/LkSlice'
+
 
 export const store = configureStore({
     reducer: {
       login: loginSlice,
-      home: homeSlice
+      home: homeSlice,
+      lk: lkSlice
     },
     devTools: process.env.NODE_ENV !== 'production',
     middleware: (getDefaultMiddleware) =>

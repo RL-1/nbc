@@ -6,10 +6,10 @@ import { RootState, useAppDispatch, useAppSelector } from '../../../../redux/sto
 import { SnackbarProvider, VariantType, useSnackbar } from 'notistack';
 //@ts-ignore fix
 import styles from './styles.module.css';
-import { authJoin } from '../../redux/loginSlice';
+import { authJoin, login } from '../../redux/loginSlice';
 
 interface LoginValueType { 
-    name: string
+    login: string
     password: string
 }
 export const Login = () => {
@@ -19,12 +19,13 @@ export const Login = () => {
     const account = useAppSelector((state:RootState) => state.login.account)
     const navigate = useNavigate()
     const [value, setValue] = useState<LoginValueType>({
-        name: '',
+        login: '',
         password: ''
     })
 
     function handleAuthJoin() {
         dispatch(authJoin(true))
+        dispatch(login(value))
         handleClickVariant('success')
         navigate('/lk')
     }
@@ -32,14 +33,14 @@ export const Login = () => {
       enqueueSnackbar(`${variant}!`, { variant });
     };
     const handleChangeName = (e: string) => {
-        setValue({ ...value, name: e })
+        setValue({ ...value, login: e })
     }
     const handleChangePassword = (e: string) => {
         setValue({ ...value, password: e })
     }
     const regExpName = () => {
         const regex = new RegExp('^(?=.*[a-z])');
-        return regex.exec(value.name)
+        return regex.exec(value.login)
     }
     const regExpPassword = () => {
         const regex = new RegExp('^(?=.*[a-z])');
@@ -47,7 +48,7 @@ export const Login = () => {
     }
     const handleCheckAccount = () => {
         let checkAccount = account.filter((item) => {
-            return item.login == value.name && item.password == value.password
+            return item.login == value.login && item.password == value.password
         })
         return regExpName() && regExpPassword() && checkAccount?.length > 0
     }
@@ -67,14 +68,14 @@ export const Login = () => {
                 </h2>
                 <div className={styles.input__holder}>
                     <div>Логин</div>
-                    <Inputs type='text' value={value.name} handleChange={handleChangeName} />
+                    <Inputs type='text' value={value.login} handleChange={handleChangeName} />
                 </div>
                 <div className={styles.input__holder}>
                     <div>Пароль</div>
                     <Inputs type='password' value={value.password} handleChange={handleChangePassword} />
                 </div>
                 <div 
-                    className={value.name.length > 0 && value.password.length > 0 ? 
+                    className={value.login.length > 0 && value.password.length > 0 ? 
                     styles.button__join : styles.button__join__active}
                     onClick={handleJoin}
                 >

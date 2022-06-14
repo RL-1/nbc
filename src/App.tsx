@@ -6,6 +6,7 @@ import { Wrapper } from './component/Wrapper/wrapper';
 import { Catalog } from './pages/Catalog';
 import { Home } from './pages/Home';
 import { Login } from './pages/isAuth/component/login/login';
+import { Register } from './pages/isAuth/component/register/register';
 import { Lk } from './pages/Lk';
 
 export const App = () => {
@@ -16,6 +17,7 @@ export const App = () => {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/register' element={<Register />} />
             <Route path='catalog/:id' element = {<Catalog />}/>
             <Route path='/lk' element={<Lk />} />
           </Routes>

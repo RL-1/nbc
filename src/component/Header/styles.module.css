@@ -1,4 +1,8 @@
 a {
     text-decoration: none !important;
     color: #fff;
+}   
+.nav__login{
+    display: flex;
+    gap:10px;
 }
