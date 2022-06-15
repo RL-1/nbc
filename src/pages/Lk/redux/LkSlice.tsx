@@ -1,23 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { HomeItemType } from '../../Home/redux/HomeSlice'
+import { HomeCardMassiveType, HomeItemType } from '../../Home/redux/HomeSlice'
 
 
 interface initialStateType {
-    boughtProduct: HomeItemType[]
+    boughtProduct: HomeItemType[],
+    myProduct: HomeCardMassiveType[]
 }
 const initialStateLogin: initialStateType = {
-    boughtProduct: []
+    boughtProduct: [],
+    myProduct: []
 }
 
 export const lkSlice = createSlice({
-  name: 'login',
+  name: 'lk',
   initialState: initialStateLogin,
   reducers: {
     boughtProductItem(state, action) {
         state.boughtProduct.push(action.payload)
+    },
+    addProduct(state, action) {
+        state.myProduct.push(action.payload)
+    },
+    deleteProduct(state, action) {
+      state.myProduct = state.myProduct.filter(
+        (e, index) => action.payload !== index
+      )
     }
   },
 })
 
-export const { boughtProductItem } = lkSlice.actions
+export const { boughtProductItem, addProduct, deleteProduct } = lkSlice.actions
 export default lkSlice.reducer

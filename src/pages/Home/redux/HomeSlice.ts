@@ -92,9 +92,17 @@ export const homeSlice = createSlice({
             state.homeCardMassive = state.homeCardMassive.filter(
                 (e, index) => action.payload.value.id - 1 !== index)
         }
-    }
+    },
+    addProductHome(state, action){
+        state.homeCardMassive.push(action.payload)
+    },
+    deleteProductHome(state, action) {
+        state.homeCardMassive = state.homeCardMassive.filter(
+          (e, index) => action.payload !== index
+        )
+      }
   },
 })
 
-export const { setItem, buyItem } = homeSlice.actions
+export const { setItem, buyItem, addProductHome, deleteProductHome } = homeSlice.actions
 export default homeSlice.reducer

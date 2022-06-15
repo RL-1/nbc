@@ -12,6 +12,9 @@ import avatar from '../../assets/images/avatar.png'
 import { RootState, useAppDispatch, useAppSelector } from '../../redux/store';
 import { authJoin } from '../isAuth/redux/loginSlice';
 import { useNavigate } from 'react-router-dom';
+import { ModalCustom } from '../../component/Modal/Modal';
+import { CreateProduct } from './component/createProduct/createProduct';
+import { ItemProduct } from './component/itemProduct/itemProduct';
 interface LoginValueType { 
     login: string
     password: string
@@ -29,8 +32,10 @@ export const Lk = () => {
         password: '',
         law: 'user'
     })
+    const [openModal, setOpenModal] = useState<boolean>(false)
     const lk = useAppSelector((state: RootState) => state.login.lk)
     const boughtProduct = useAppSelector((state: RootState) => state.lk.boughtProduct)
+    const myProduct = useAppSelector((state: RootState) => state.lk.myProduct)
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const handleChangeName = (e: string) => {
@@ -43,6 +48,8 @@ export const Lk = () => {
         dispatch(authJoin(false))
         navigate('/')
     }
+    const handleOpen = () => setOpenModal(true)
+    const handleClose = () => setOpenModal(false)
     
     return(
         <div className={styles.main}>
@@ -76,7 +83,7 @@ export const Lk = () => {
                 </div>
                 <div className={styles.goods}>
                     <div className={styles.goods__title}>
-                        Мои товари
+                        Купленные товары
                     </div>
                     <div className={styles.goods__product}>
                         {boughtProduct.length > 0 ? (
@@ -90,6 +97,15 @@ export const Lk = () => {
                                 )
                             })
                         ) : <div>У вас пока нет купленных товаров {`:<`}</div>}
+                    </div>
+                </div>
+                <div className={styles.goods}>
+                    <div className={styles.goods__title}>
+                        Мои товары
+                    </div>
+                    <CreateProduct />
+                    <div className={styles.goods__product}>
+                        <ItemProduct />
                     </div>
                 </div>
             </div>
